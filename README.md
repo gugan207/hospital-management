@@ -1,4 +1,4 @@
-# Sanjeevani — Hospital Management System
+# GUGAN — Hospital Management System
 
 *"Care that keeps its word."*
 

@@ -1,13 +1,13 @@
-# Sanjeevani — Hospital Management System
-## Complete Product Summary, Architecture, Design System & Tooling
+# GUGAN — Hospital Management System
+**Comprehensive Product Architecture, Tools & Tech Stack, and Design System Summary**
 
 ---
 
-## 1. Executive Summary & Product Vision
+## 1. Executive Summary
 
-**Sanjeevani Hospital Management System** is a modern, responsive, human-centered digital healthcare management platform. Developed under the core philosophy of **"Care that keeps its word"**, the application bridges the interaction gap between hospital administrators, clinical specialists, and patients.
+**GUGAN Hospital Management System** is a modern, responsive, human-centered digital healthcare management platform. Developed under the core philosophy of **"Care that keeps its word"**, the application bridges the interaction gap between hospital administrators, clinical specialists, and patients.
 
-Unlike traditional clinical enterprise software—which is often visually sterile, cluttered, and overwhelming—Sanjeevani prioritizes calm clarity, cognitive accessibility, and rapid usability. Designed with a disciplined teal design system and deliberate emergency signaling, it enables users to scan clinical schedules, filter specialist physicians, book consultation slots with real-time availability constraints, and access patient health records in seconds.
+Unlike traditional clinical enterprise software—which is often visually sterile, cluttered, and overwhelming—GUGAN prioritizes calm clarity, cognitive accessibility, and rapid usability. Designed with a disciplined teal design system and deliberate emergency signaling, it enables users to scan clinical schedules, filter specialist physicians, book consultation slots with real-time availability constraints, and access patient health records in seconds.
 
 ---
 
