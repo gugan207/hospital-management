@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjeevani — Hospital Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg style="display:none" aria-hidden="true">
+<defs>
+  <symbol id="icon-heartbeat" viewBox="0 0 100 24"><polyline points="0,12 22,12 28,3 34,21 40,7 46,17 52,12 100,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></symbol>
+  <symbol id="icon-doctors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.4"/><path d="M4.5 21c0-4.5 3.4-7 7.5-7s7.5 2.5 7.5 7"/><path d="M12 3.6v1.2M12 3.6a1.6 1.6 0 0 0-1.6 1.6"/></symbol>
+  <symbol id="icon-appointments" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17"/><path d="M8 2.5v4M16 2.5v4"/><path d="M8 14l2.3 2.3L16 11"/></symbol>
+  <symbol id="icon-patients" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.7 20c0-3.7 2.8-6 6.3-6s6.3 2.3 6.3 6"/><path d="M16.5 5.2A3.2 3.2 0 0 1 16.5 11.4"/><path d="M18.5 14.4c2.5.5 3.8 2.5 3.8 5.6"/></symbol>
+  <symbol id="icon-departments" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-5 8 5v12"/><path d="M4 21h16"/><path d="M9.5 21v-6h5v6"/></symbol>
+  <symbol id="icon-emergency" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></symbol>
+  <symbol id="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.3 6.9.7-5.2 4.7 1.5 6.8L12 17.7 5.9 21l1.5-6.8-5.2-4.7 6.9-.7z"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4h3.4l1.3 4.2-2 1.6a13 13 0 0 0 5.9 5.9l1.6-2 4.2 1.3v3.4a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 2.7 5.9 1.8 1.8 0 0 1 4.5 4z"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></symbol>
+  <symbol id="icon-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9.5 16.5H2.5z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol>
+  <symbol id="icon-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18V8.5"/><path d="M2.5 15h19v3"/><path d="M2.5 15v-2.5a2 2 0 0 1 2-2h15a2 2 0 0 1 2 2V15"/><rect x="5" y="8.5" width="5" height="4" rx="1"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2S3.5 15 3.5 8.9A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.5 2.7c0 6.1-8.5 11.3-8.5 11.3z"/></symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5a3 3 0 0 0-3 3v.4A3.3 3.3 0 0 0 4.5 13a3.3 3.3 0 0 0 1.9 5.6A3 3 0 0 0 9 21"/><path d="M15 4.5a3 3 0 0 1 3 3v.4A3.3 3.3 0 0 1 19.5 13a3.3 3.3 0 0 1-1.9 5.6A3 3 0 0 1 15 21"/><path d="M9 4.5v16.5M15 4.5v16.5"/></symbol>
+  <symbol id="icon-bone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a2.3 2.3 0 1 0-2.5 2.7L15.5 23l3-3-12-12A2.3 2.3 0 1 0 6 8.5z"/><path d="M18 15.5a2.3 2.3 0 1 1 2.5-2.7L8.5 1l-3 3 12 12a2.3 2.3 0 1 1-.5 3.5"/></symbol>
+  <symbol id="icon-baby" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4.5"/><path d="M9.5 8.5c1 1 4 1 5 0"/><path d="M4.5 21c1-4.6 4-7 7.5-7s6.5 2.4 7.5 7"/></symbol>
+  <symbol id="icon-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6.5a4.5 4.5 0 0 0 9 0V3"/><path d="M9.5 13.5v2a5 5 0 0 0 10 0v-2.3"/><circle cx="19.5" cy="12.5" r="1.7"/><path d="M5 3H3.5M9 3H7.5"/></symbol>
+  <symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6.5 7.4 6.5 12A6.5 6.5 0 0 1 5.5 15C5.5 10.4 12 3 12 3z"/></symbol>
+  <symbol id="icon-ear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4a6 6 0 0 0-6 6c0 2.5 1.7 3.3 1.7 5.5a2.3 2.3 0 0 1-2.3 2.3"/><path d="M15 4a6.5 6.5 0 0 1 6.5 6.5c0 4.5-4 5-4 8.5a2.5 2.5 0 0 1-5 0v-1.3"/></symbol>
+  <symbol id="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+</defs>
+</svg>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="login-screen" class="login-screen">
+  <div class="login-brand">
+    <div class="login-brand__inner">
+      <div class="brand-mark"><svg width="26" height="26"><use href="#icon-cross"/></svg><span>Sanjeevani</span></div>
+      <h1 class="login-headline">Care that<br>keeps its word.</h1>
+      <p class="login-sub">A calmer way to run wards, book care, and keep every patient's record one click away.</p>
+      <svg class="vitals-line" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="0,20 60,20 75,4 92,36 108,10 124,28 140,20 300,20"/>
+      </svg>
+      <div class="login-stats">
+        <div class="login-stat"><span class="login-stat__num">340+</span><span class="login-stat__label">Beds managed</span></div>
+        <div class="login-stat"><span class="login-stat__num">120+</span><span class="login-stat__label">Specialist doctors</span></div>
+        <div class="login-stat"><span class="login-stat__num">24/7</span><span class="login-stat__label">Emergency desk</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-form-panel">
+    <form class="login-form" id="login-form" novalidate>
+      <p class="eyebrow">Sign in</p>
+      <h2 class="login-form__title">Welcome back</h2>
+      <p class="login-form__sub">Choose your role to continue to Sanjeevani.</p>
+
+      <div class="role-tabs" role="tablist" aria-label="Login role">
+        <button type="button" class="role-tab is-active" data-role="staff" role="tab" aria-selected="true">Staff</button>
+        <button type="button" class="role-tab" data-role="doctor" role="tab" aria-selected="false">Doctor</button>
+        <button type="button" class="role-tab" data-role="patient" role="tab" aria-selected="false">Patient</button>
+      </div>
+
+      <div class="field">
+        <label for="login-id">Login ID</label>
+        <input type="text" id="login-id" name="login-id" autocomplete="username" placeholder="e.g. demo">
+        <span class="field-error" id="login-id-error">Enter your login ID.</span>
+      </div>
+
+      <div class="field">
+        <label for="login-pw">Password</label>
+        <input type="password" id="login-pw" name="login-pw" autocomplete="current-password" placeholder="••••••••">
+        <span class="field-error" id="login-pw-error">Enter your password.</span>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--block" id="login-submit">
+        <span class="btn-label">Sign in</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+
+      <div class="demo-hint">
+        <svg width="16" height="16"><use href="#icon-alert"/></svg>
+        <span>Demo prototype — enter anything, e.g. ID <code>demo</code> / password <code>demo123</code>.</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="app-shell" class="app-shell hidden">
+
+  <div class="drawer-scrim" id="drawer-scrim"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <svg width="22" height="22"><use href="#icon-cross"/></svg>
+      <span>Sanjeevani</span>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu"><svg width="20" height="20"><use href="#icon-close"/></svg></button>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav__item is-active" data-page="dashboard"><svg width="19" height="19"><use href="#icon-dashboard"/></svg><span>Dashboard</span></button>
+      <button class="nav__item" data-page="doctors"><svg width="19" height="19"><use href="#icon-doctors"/></svg><span>Doctors</span></button>
+      <button class="nav__item" data-page="appointments"><svg width="19" height="19"><use href="#icon-appointments"/></svg><span>Appointments</span></button>
+      <button class="nav__item" data-page="patients"><svg width="19" height="19"><use href="#icon-patients"/></svg><span>Patients</span></button>
+      <button class="nav__item" data-page="departments"><svg width="19" height="19"><use href="#icon-departments"/></svg><span>Departments</span></button>
+    </nav>
+
+    <div class="sidebar__emergency">
+      <svg width="18" height="18"><use href="#icon-emergency"/></svg>
+      <div>
+        <p class="sidebar__emergency-label">Emergency line</p>
+        <p class="sidebar__emergency-num">102 · 24/7</p>
+      </div>
+    </div>
+
+    <div class="sidebar__user">
+      <div class="avatar avatar--sm" id="sidebar-avatar">S</div>
+      <div class="sidebar__user-info">
+        <p class="sidebar__user-name" id="sidebar-user-name">Staff Desk</p>
+        <p class="sidebar__user-role" id="sidebar-user-role">Staff portal</p>
+      </div>
+      <button class="icon-btn" id="signout-btn" aria-label="Sign out" title="Sign out">
+        <svg width="17" height="17"><use href="#icon-logout"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><svg width="22" height="22"><use href="#icon-menu"/></svg></button>
+      <div class="topbar__greeting">
+        <p class="topbar__hello" id="topbar-hello">Good day, Staff</p>
+        <p class="topbar__date" id="topbar-date"></p>
+      </div>
+      <div class="topbar__right">
+        <a href="#appointments" class="emergency-pill" data-page-link="dashboard">
+          <svg width="15" height="15"><use href="#icon-emergency"/></svg>
+          <span>Emergency: 102</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- ===== DASHBOARD ===== -->
+      <section class="page is-active" data-page="dashboard" aria-labelledby="dashboard-title">
+        <div class="page__head">
+          <p class="eyebrow">Overview</p>
+          <h1 id="dashboard-title" class="page__title">Dashboard</h1>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-card__icon"><svg width="19" height="19"><use href="#icon-doctors"/></svg></span>
+            <span class="stat-card__num" id="stat-doctors">0</span>
+            <span class="stat-card__label">Total doctors</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon"><svg width="19" height="19"><use href="#icon-appointments"/></svg></span>
+            <span class="stat-card__num" id="stat-appointments">0</span>
+            <span class="stat-card__label">Today's appointments</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon"><svg width="19" height="19"><use href="#icon-patients"/></svg></span>
+            <span class="stat-card__num" id="stat-patients">0</span>
+            <span class="stat-card__label">Total patients</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon"><svg width="19" height="19"><use href="#icon-bed"/></svg></span>
+            <span class="stat-card__num" id="stat-beds">0</span>
+            <span class="stat-card__label">Beds available</span>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card__head">
+              <h2>Today's appointments</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="table" id="today-table">
+                <thead><tr><th>Time</th><th>Patient</th><th>Doctor</th><th>Status</th></tr></thead>
+                <tbody id="today-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__head"><h2>Quick access</h2></div>
+            <div class="quick-grid">
+              <button class="quick-btn" data-page-link="doctors"><svg width="20" height="20"><use href="#icon-doctors"/></svg>Doctors</button>
+              <button class="quick-btn" data-page-link="appointments"><svg width="20" height="20"><use href="#icon-appointments"/></svg>Appointments</button>
+              <button class="quick-btn" data-page-link="patients"><svg width="20" height="20"><use href="#icon-patients"/></svg>Patients</button>
+              <button class="quick-btn" data-page-link="departments"><svg width="20" height="20"><use href="#icon-departments"/></svg>Departments</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="emergency-banner">
+          <div class="emergency-banner__text">
+            <svg width="26" height="26"><use href="#icon-emergency"/></svg>
+            <div>
+              <h3>Medical emergency?</h3>
+              <p>Our trauma desk is staffed around the clock. Call now or walk in — no appointment needed.</p>
+            </div>
+          </div>
+          <a href="tel:102" class="btn btn--coral">Call 102 now</a>
+        </div>
+      </section>
+
+      <!-- ===== DOCTORS ===== -->
+      <section class="page" data-page="doctors" aria-labelledby="doctors-title">
+        <div class="page__head">
+          <p class="eyebrow">Directory</p>
+          <h1 id="doctors-title" class="page__title">Doctors</h1>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-field">
+            <svg width="18" height="18"><use href="#icon-search"/></svg>
+            <input type="text" id="doctor-search" placeholder="Search by name or specialization">
+          </div>
+          <div class="select-wrap">
+            <select id="doctor-dept-filter">
+              <option value="all">All departments</option>
+            </select>
+            <svg width="16" height="16"><use href="#icon-chevron"/></svg>
+          </div>
+        </div>
+
+        <div class="doctor-grid" id="doctor-grid"></div>
+        <p class="empty-state" id="doctor-empty" hidden>No doctors match your search. Try a different name or department.</p>
+      </section>
+
+      <!-- ===== APPOINTMENTS ===== -->
+      <section class="page" data-page="appointments" aria-labelledby="appointments-title">
+        <div class="page__head">
+          <p class="eyebrow">Scheduling</p>
+          <h1 id="appointments-title" class="page__title">Appointments</h1>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Appointments view">
+          <button class="tab is-active" data-tab="book" role="tab" aria-selected="true">Book appointment</button>
+          <button class="tab" data-tab="schedule" role="tab" aria-selected="false">Upcoming schedule</button>
+        </div>
+
+        <div class="tab-panel is-active" data-tab-panel="book">
+          <div class="card booking-card">
+            <form id="booking-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="book-dept">Department</label>
+                  <div class="select-wrap">
+                    <select id="book-dept"><option value="">Select department</option></select>
+                    <svg width="16" height="16"><use href="#icon-chevron"/></svg>
+                  </div>
+                  <span class="field-error">Choose a department.</span>
+                </div>
+                <div class="field">
+                  <label for="book-doctor">Doctor</label>
+                  <div class="select-wrap">
+                    <select id="book-doctor"><option value="">Select department first</option></select>
+                    <svg width="16" height="16"><use href="#icon-chevron"/></svg>
+                  </div>
+                  <span class="field-error">Choose a doctor.</span>
+                </div>
+                <div class="field">
+                  <label for="book-name">Patient name</label>
+                  <input type="text" id="book-name" placeholder="Full name">
+                  <span class="field-error">Enter the patient's name.</span>
+                </div>
+                <div class="field">
+                  <label for="book-phone">Phone</label>
+                  <input type="tel" id="book-phone" placeholder="10-digit number">
+                  <span class="field-error">Enter a contact number.</span>
+                </div>
+                <div class="field">
+                  <label for="book-date">Date</label>
+                  <input type="date" id="book-date">
+                  <span class="field-error">Pick a date.</span>
+                </div>
+                <div class="field">
+                  <label for="book-reason">Reason for visit <span class="optional">(optional)</span></label>
+                  <input type="text" id="book-reason" placeholder="e.g. Routine checkup">
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Time slot</label>
+                <div class="slot-grid" id="slot-grid"></div>
+                <span class="field-error" id="slot-error">Pick an available time slot.</span>
+              </div>
+
+              <div class="confirmation" id="booking-confirmation" hidden>
+                <svg width="20" height="20"><use href="#icon-check"/></svg>
+                <div id="booking-confirmation-text"></div>
+              </div>
+
+              <button type="submit" class="btn btn--primary">Confirm booking</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="schedule">
+          <div class="card">
+            <div class="card__head"><h2>Upcoming appointments</h2></div>
+            <div class="date-row-list" id="schedule-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PATIENTS ===== -->
+      <section class="page" data-page="patients" aria-labelledby="patients-title">
+        <div class="page__head">
+          <p class="eyebrow">Patient dashboard</p>
+          <h1 id="patients-title" class="page__title">Patients</h1>
+        </div>
+
+        <div class="patient-grid">
+          <div class="card profile-card">
+            <div class="avatar avatar--lg" id="patient-avatar">AK</div>
+            <h2 id="patient-name">—</h2>
+            <p class="profile-id" id="patient-id">—</p>
+            <dl class="profile-list" id="patient-details"></dl>
+          </div>
+
+          <div class="patient-activity">
+            <div class="card">
+              <div class="card__head"><h2>Upcoming appointments</h2></div>
+              <div class="date-row-list" id="patient-appointments"></div>
+            </div>
+            <div class="card">
+              <div class="card__head"><h2>Recent records</h2></div>
+              <ul class="record-list" id="patient-records"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DEPARTMENTS ===== -->
+      <section class="page" data-page="departments" aria-labelledby="departments-title">
+        <div class="page__head">
+          <p class="eyebrow">Services</p>
+          <h1 id="departments-title" class="page__title">Departments</h1>
+        </div>
+        <div class="dept-grid" id="dept-grid"></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
